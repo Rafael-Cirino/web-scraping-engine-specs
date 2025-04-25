@@ -2,10 +2,14 @@
 > Access engines manufacturer sites and get information about their products
 
 This program access and scraping web site from manufacturer that made engines and get:
-    - Product id and name
-    - Specifications
-    - Bom data
-    - Cad files
+    * Product id and name
+    * Specifications
+    * Bom data
+    * Cad files
+
+**Notes**: 
+* When program starts it can take around 40 sec to show any information, because this is the time to get product id list from the abb site.
+* When product id has a / in the name, it be replaced by _. Because it can't create a folder or file name with /
 
 ## Install requirements
 
@@ -58,6 +62,12 @@ Run for a random sample with 15 products ids and skip products ids already downl
 
 ```
     python src/main.py scraping_limit=15 only_new=True
+```
+
+Set log_verbose as True to show the log information in the terminal.
+
+```
+    python src/main.py scraping_limit=15 log_verbose=True
 ```
 
 ## Release History
