@@ -35,7 +35,8 @@ def main(cfg: DictConfig) -> None:
     """
 
     # Start log
-    if cfg.log_verbose:
+    log_verbose = cfg.log_verbose
+    if not log_verbose:
         logger.remove()
     logger.add(f"{cfg.log_output}")
     logger.info("start")
@@ -60,7 +61,9 @@ def main(cfg: DictConfig) -> None:
         return
 
     # Run scrapping
-    for prod_url in tqdm(products_list):
+    for prod_url in tqdm(
+        products_list, desc="Scrapping: ", unit="product id", disable=log_verbose
+    ):
         abb_scrapping = instantiate(cfg).sites
         abb_scrapping.run_scrapping(prod_url)
 

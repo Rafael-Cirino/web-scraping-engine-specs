@@ -53,7 +53,10 @@ class Request:
         """
 
         response = self.get_response(src_url)
-
+        if not response:
+            logger.error(f"Failed to download file from {src_url}")
+            return
+        
         with open(dst_path, "wb") as file:
             shutil.copyfileobj(response.raw, file)
 

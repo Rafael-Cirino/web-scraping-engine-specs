@@ -13,7 +13,7 @@ output_paths:
   metadata: output/metadata
 
 # Logs
-log_verbose: True
+log_verbose: False
 log_folder: logs
 log_output: ${log_folder}/logger/web-scrapping-log_${now:%Y-%m-%d}_${now:%H-%M-%S}.log
 

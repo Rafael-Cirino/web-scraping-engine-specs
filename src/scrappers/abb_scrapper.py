@@ -75,6 +75,7 @@ class ABBScrapping(BaseScrapping):
         self.product_info.product_id = self.connection.get_element_text(
             "CSS_SELECTOR", "div.page-title"
         )
+        self.product_info.product_id = self.product_info.product_id.replace("/", "_")
         self.product_info.description = self.connection.get_element_text(
             "CSS_SELECTOR", "div.product-description"
         )
