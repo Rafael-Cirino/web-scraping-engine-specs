@@ -1,0 +1,3 @@
+_target_: scrappers.abb_scrapper.ABBScrapping
+
+default_url_download: https://www.baldor.com/api/products/download/?value=

@@ -1,0 +1,22 @@
+defaults:
+  - _self_
+  - sites: abb
+
+# Arguments to get products ids
+scraping_limit: ~
+unique: ~ #["CDPX3410", "1010", "105W", "XL21542"]
+only_new: False
+
+# Output paths
+output_paths:
+  assets: output/assets
+  metadata: output/metadata
+
+# Logs
+log_verbose: True
+log_folder: logs
+log_output: ${log_folder}/logger/web-scrapping-log_${now:%Y-%m-%d}_${now:%H-%M-%S}.log
+
+hydra:
+  run:
+    dir: ${log_folder}/hydra/${now:%Y-%m-%d}/${now:%H-%M-%S}
